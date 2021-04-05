@@ -5,6 +5,7 @@ import AppsIcon from "@material-ui/icons/Apps";
 import { Avatar } from "@material-ui/core";
 import Search from '../../components/Search/Search'
 
+
 function Home() {
   return (
     <div className="home">
