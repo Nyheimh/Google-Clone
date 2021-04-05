@@ -32,14 +32,14 @@ function SearchPage() {
         </Link>
 
         <div className="searchPage__headerBody">
-          <Search hideButtons />
-        </div>
-      </div>
+            <Search hideButtons />
       <div className="searchPage__options">
         <div className="searchPage__optionsLeft">
           <div className="searchPage__option">
             <SearchIcon />
-            <Link to="/all">All</Link>
+                <Link to="/all">All</Link>
+          </div>
+                <div className="searchPage__option">
             <DescriptionIcon />
             <Link to="/news">News</Link>
           </div>
@@ -58,6 +58,8 @@ function SearchPage() {
           <div className="searchPage__option">
             <MoreVertIcon />
             <Link to="/more">More</Link>
+        </div>
+      </div>
           </div>
         </div>
         <div className="searchPage__optionsRight">
@@ -71,7 +73,7 @@ function SearchPage() {
       </div>
       {/* </div> */}
 
-      {true && (
+      {term && (
         <div className="searchPage__results">
           <p className="searchPage__resultCount">
             About {data?.searchInformation.formattedTotalResults} results (
@@ -83,7 +85,6 @@ function SearchPage() {
               <a className="searchPage__resultLink" href={item.link}>
                 {item.pagemap?.cse_image?.length > 0 &&
                   item.pagemap?.cse_image[0]?.src && (
-                    // {items.displayLink}
                     <img
                       className="searchPage__resultImage"
                       src={
