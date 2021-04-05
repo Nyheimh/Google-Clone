@@ -30,13 +30,15 @@ function SearchPage() {
             alt=""
           />
         </Link>
+
+        <div className="searchPage__headerBody">
+          <Search hideButtons />
+        </div>
       </div>
+      <div className="searchPage__options">
+        
+        <div className="searchPage__optionsLeft">
 
-      <div className="searchPage__headerBody">
-        <Search hideButtons />
-
-        <div className="searchPage__options"></div>
-        <div className="searchPage__optionsLeft"></div>
         <div className="searchPage__option">
           <SearchIcon />
           <Link to="/all">All</Link>
@@ -59,6 +61,7 @@ function SearchPage() {
           <MoreVertIcon />
           <Link to="/more">More</Link>
         </div>
+        </div>
         <div className="searchPage__optionsRight">
           <div className="searchPage__option">
             <Link to="/settings">Settings</Link>
@@ -68,29 +71,41 @@ function SearchPage() {
           </div>
         </div>
       </div>
-      {term && (
-        <div className="searchPage__results">
-          <p className="searchPage__resultCount">
-            About {data?.searchInformation.formattedTotalResults}results (
-            {data?.searchInformation.formattedSearchTime} seconds) for {term}
-          </p>
-          {data?.items.map((item) => (
-            <div className="searchPage__result">
-              {item.pagemap?.cse_image?.length > 0 item.pagemap?.cse_image[0]?.src && (
-              
-              )}
-
-              {item.displayLink}
-              <a href={item.link}>{items.displayLink}</a>
-              <a className="searchPage__resultTitle" href={item.link}>
-                <h2>{item.title}</h2>
-              </a>
-              <p className="searchPage__resultSnippet">{item.snippet}</p>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
+    
+      {term && (
+        <div
+      className="searchPage__results">
+      <p
+        className="searchPage__resultCount">
+            About {data?.searchInformation.formattedTotalResults} results 
+            ({data?.searchInformation.formattedSearchTime} seconds) for {term}
+          </p>
+      {data?.items.map(item => (
+        <div className="searchPage__result">
+          <a href={item.link}>{items.displayLink}
+            {item.pagemap?.cse_image?.length > 0 item.pagemap?.cse_image[0]?.src && (
+              <img
+              className="searchPage__resultImage"
+              src={
+                item.pagemap?.cse_image?.length > 0 &&
+                item.pagemap?.cse_image[0]?.src
+              }
+              alt=""
+              />
+                )}
+                {item.displayLink}
+          </a>
+          <a className="searchPage__resultTitle" href={item.link}>
+            <h2>{item.title}</h2>
+          </a>
+          <p className="searchPage__resultSnippet">{item.snippet}</p>
+              
+        </div>
+      ))}
+            </div>
+      )}
+        </div>
   );
 }
 
