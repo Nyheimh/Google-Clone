@@ -23,7 +23,7 @@ function Home() {
       </div>
       <div className="home__body">
         <img
-          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+          src="https://www.google.com/logos/doodles/2021/wear-a-mask-save-lives-apr-6-6753651837109262.2-law.gif"
           alt=""
         />
         <div className="home__inputContainer">
